@@ -7,15 +7,21 @@ function MainPage() {
   const [url, setUrl] = useState('https://swapi.dev/api/people/1/');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getData('https://swapi.dev/api/people/1/').then((data) => {
+  
+  function nameRequest() {
+    setLoading(true);
+    getData(url).then((data) => {
       setData(data);
     }).catch((error) =>{
       console.error('Data retrieval error:', error);
     }).finally(()=>{
       setLoading(false);
     }) 
-  }, []);
+  }
+
+  useEffect(() => {
+    nameRequest()
+  }, [url]);
 
   if (loading) {
     return <p>Loading...</p>;

@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 interface SearchProps {
   url: string;
   setUrl: (newUrl: string) => void;
@@ -5,13 +7,24 @@ interface SearchProps {
 
 function Search({ url, setUrl }: SearchProps) {
 
+  const [text, setText] = useState('');
+  useEffect(() => {
+    setText(url)
+  }, []);
+
+
   return (
     <section>
       <input 
         type="text" 
-        value={url} 
-        onChange={(event)=> setUrl(event.target.value)}
+        value={text} 
+        onChange={(event) => setText(event.target.value)}
       />
+      <button
+      onClick={() => setUrl(text)}
+      >
+        Search
+      </button>
     </section>
   );
 }
