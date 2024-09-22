@@ -4,14 +4,14 @@ import Search from '../components/Search/Search';
 import Output from '../components/Output/Output';
 
 function MainPage() {
-  const [url, setUrl] = useState('https://swapi.dev/api/people/1/');
-  const [data, setData] = useState(null);
+  const [url, setUrl] = useState('https://swapi.dev/api/people/?search=Dark');
+  const [data, setData] = useState('');
   const [loading, setLoading] = useState(true);
   
   function nameRequest() {
     setLoading(true);
     getData(url).then((data) => {
-      setData(data);
+      setData(data as string);
     }).catch((error) =>{
       console.error('Data retrieval error:', error);
     }).finally(()=>{

@@ -6,7 +6,7 @@ function Output({outputDate }: OutputProps) {
   console.log(outputDate )
   return (
     <section>
-      {outputDate }
+      { outputDate }
     </section>
   );
 }
