@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getData } from '../utilits/api/getData';
-import Search from '../components/Search/Search';
-import Output from '../components/Output/Output';
+import Search from '@components/Search/Search';
+import Output from '@components/Output/Output';
 
 function MainPage() {
   const [url, setUrl] = useState('');

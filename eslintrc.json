@@ -28,8 +28,20 @@
       "react-compiler/react-compiler": "error"
   },
   "settings": {
-      "react": {
-          "version": "detect"
+    "react": {
+        "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@assets", "./src/assets"],
+          ["@components", "./src/components"],
+          ["@hooks", "./src/hooks"],
+          ["@pages", "./src/pages"],
+          ["@utils", "./src/utils"]
+        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue", ".svg"]
       }
+    }
   }
 }
