@@ -1,12 +1,12 @@
 interface OutputProps {
-  outputDate : string
+  outputData : string
 }
 
-function Output({outputDate }: OutputProps) {
-  console.log(outputDate )
+function Output({outputData }: OutputProps) {
+  console.log(outputData )
   return (
     <section>
-      { outputDate }
+      { outputData }
     </section>
   );
 }

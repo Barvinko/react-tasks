@@ -4,7 +4,7 @@ import Search from '../components/Search/Search';
 import Output from '../components/Output/Output';
 
 function MainPage() {
-  const [url, setUrl] = useState('https://swapi.dev/api/people/?search=Dark');
+  const [url, setUrl] = useState('');
   const [data, setData] = useState('');
   const [loading, setLoading] = useState(true);
   
@@ -23,9 +23,6 @@ function MainPage() {
     nameRequest()
   }, [url]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
   console.log(data)
   return (
     <>
@@ -33,9 +30,13 @@ function MainPage() {
         url={url}
         setUrl={setUrl}
       />
-      <Output 
-        outputDate = {data ? JSON.stringify(data) : 'No data available'}
-      />
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <Output 
+          outputData={data ? JSON.stringify(data) : 'No data available'}
+        />
+      )}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface SearchProps {
   url: string;
@@ -8,17 +8,13 @@ interface SearchProps {
 function Search({ url, setUrl }: SearchProps) {
 
   const [text, setText] = useState('');
-  useEffect(() => {
-    setText(url)
-  }, []);
-
 
   return (
     <section>
       <input 
         type="text" 
-        value={text} 
-        onChange={(event) => setText(event.target.value)}
+        value={''} 
+        onChange={(event) => setText(`https://swapi.dev/api/people/?search=${event.target.value}`)}
       />
       <button
       onClick={() => setUrl(text)}
