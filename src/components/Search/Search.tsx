@@ -1,3 +1,4 @@
+import { ArrSetLocalStorage } from '@hooks/useLocalStorage';
 import { useState } from 'react';
 
 interface SearchProps {
@@ -7,15 +8,19 @@ interface SearchProps {
 function Search({ setUrl }: SearchProps) {
   const [text, setText] = useState('');
 
+  const historySearch = ArrSetLocalStorage<string>('historySearch', new Set());
+
   return (
     <section>
-      <input
-        type="text"
-        onChange={(event) =>
-          setText(`https://swapi.dev/api/people/?search=${event.target.value}`)
-        }
-      />
-      <button onClick={() => setUrl(text)}>Search</button>
+      <input type="text" onChange={(event) => setText(event.target.value)} />
+      <button
+        onClick={() => {
+          setUrl(`https://swapi.dev/api/people/?search=${text}`);
+          historySearch.addToSet(text);
+        }}
+      >
+        Search
+      </button>
     </section>
   );
 }
