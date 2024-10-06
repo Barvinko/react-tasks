@@ -1,6 +1,10 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 #root {
   min-height: 100vh;
   width: 100vw;
+  background-color: #202020;
+  color: white;
 }
 
 .logo {
